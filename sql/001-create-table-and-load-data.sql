@@ -18,3 +18,4 @@ INSERT INTO cafes (name, place, regular_holiday, opening_hour, number_of_seat, b
 INSERT INTO cafes (name, place, regular_holiday, opening_hour, number_of_seat, birthplace) VALUES ("ARC", "蔵前", "年中無休", "平日10時-23時 休日8時半-23時", 52, "蔵前");
 INSERT INTO cafes (name, place, regular_holiday, opening_hour, number_of_seat, birthplace) VALUES ("T.Y.HARBOR", "天王洲アイル", "年中無休", "11時半-22時", 350, "天王洲アイル");
 INSERT INTO cafes (name, place, regular_holiday, opening_hour, number_of_seat, birthplace) VALUES ("No.13 Cafe", "新宿", "日", "11時-16時半", 30, "新宿");
+
