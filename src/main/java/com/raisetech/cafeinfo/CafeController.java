@@ -17,18 +17,12 @@ public class CafeController {
     }
 
     @GetMapping("/cafes")
-    public List<Cafe> findInformationAll() {
-        return cafeService.findAll();
-    }
-
-    @GetMapping("/cafeslocation")
-    public List<Cafe> findPlaces(@RequestParam String place) {
-        List<Cafe> cafes = cafeService.findByPlaces(place);
-        return cafes;
+    public List<Cafe> findCafePlaces(@RequestParam(value = "place", required = false) String place) {
+        return cafeService.findByPlaces(place);
     }
 
     @GetMapping("/cafes/{id}")
     public Cafe findInformation(@PathVariable("id") int id) {
-        return cafeService.findId(id);
+        return cafeService.findById(id);
     }
 }

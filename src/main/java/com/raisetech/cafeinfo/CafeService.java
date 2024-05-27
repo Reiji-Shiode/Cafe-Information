@@ -13,15 +13,15 @@ public class CafeService {
         this.cafeMapper = cafeMapper;
     }
 
-    List<Cafe> findAll() {
-        return cafeMapper.getAll();
-    }
-
     public List<Cafe> findByPlaces(String place) {
-        return cafeMapper.findByPlaceWith(place);
+        if (place != null && !place.isEmpty()) {
+            return cafeMapper.findByPlaceWith(place);
+        } else {
+            return cafeMapper.getAll();
+        }
     }
 
-    public Cafe findId(int id) {
+    public Cafe findById(int id) {
         return cafeMapper.findById(id)
                 .orElseThrow(() -> new InformationNotFoundException("こちらの情報は存在しません"));
     }
