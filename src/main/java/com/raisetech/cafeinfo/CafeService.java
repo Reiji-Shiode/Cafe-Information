@@ -17,7 +17,7 @@ public class CafeService {
         if (place != null && !place.isEmpty()) {
             return cafeMapper.findByPlaceWith(place);
         } else {
-            return cafeMapper.getAll();
+            return cafeMapper.findAll();
         }
     }
 

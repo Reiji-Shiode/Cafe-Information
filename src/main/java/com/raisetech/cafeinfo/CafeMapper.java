@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface CafeMapper {
 
     @Select("SELECT * FROM cafes")
-    List<Cafe> getAll();
+    List<Cafe> findAll();
 
     @Select("SELECT * FROM cafes WHERE place LIKE CONCAT (#{place}, '%')")
     List<Cafe> findByPlaceWith(String place);
