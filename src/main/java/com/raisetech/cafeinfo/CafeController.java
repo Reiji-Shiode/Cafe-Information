@@ -1,10 +1,10 @@
 package com.raisetech.cafeinfo;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -24,5 +24,13 @@ public class CafeController {
     @GetMapping("/cafes/{id}")
     public Cafe findInformation(@PathVariable("id") int id) {
         return cafeService.findById(id);
+    }
+
+    @PostMapping("/cafes")
+    public ResponseEntity<CafeResponse> insert(@RequestBody CafeRequest cafeRequest, UriComponentsBuilder uriBuilder) {
+        Cafe cafe = cafeService.insert(cafeRequest.getName(), cafeRequest.getPlace(), cafeRequest.getRegularHoliday(), cafeRequest.getOpeningHour(), cafeRequest.getNumberOfSeat(), cafeRequest.getBirthplace());
+        URI location = uriBuilder.path("/cafes/{id}").buildAndExpand(cafe.getId()).toUri();
+        CafeResponse body = new CafeResponse("カフェ情報が登録されました");
+        return ResponseEntity.created(location).body(body);
     }
 }
