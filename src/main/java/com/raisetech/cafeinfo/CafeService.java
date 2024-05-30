@@ -26,4 +26,9 @@ public class CafeService {
                 .orElseThrow(() -> new InformationNotFoundException("こちらの情報は存在しません"));
     }
 
+    public Cafe insert(String name, String place, String regularHoliday, String openingHour, int numberOfSeat, String birthplace) {
+        Cafe cafe = new Cafe(name, place, regularHoliday, openingHour, numberOfSeat, birthplace);
+        cafeMapper.insert(cafe);
+        return cafe;
+    }
 }

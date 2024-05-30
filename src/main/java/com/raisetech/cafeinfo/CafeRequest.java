@@ -1,8 +1,9 @@
 package com.raisetech.cafeinfo;
 
-public class Cafe {
+//カフェ情報を登録する際に使うリクエストパラメータ
 
-    private Integer id;
+public class CafeRequest {
+
     private String name;
     private String place;
     private String regularHoliday;
@@ -10,27 +11,13 @@ public class Cafe {
     private int numberOfSeat;
     private String birthplace;
 
-    public Cafe(Integer id, String name, String place, String regularHoliday, String openingHour, int numberOfSeat, String birthplace) {
-        this.id = id;
+    public CafeRequest(String name, String place, String regularHoliday, String openingHour, int numberOfSeat, String birthplace) {
         this.name = name;
         this.place = place;
         this.regularHoliday = regularHoliday;
         this.openingHour = openingHour;
         this.numberOfSeat = numberOfSeat;
         this.birthplace = birthplace;
-    }
-
-    public Cafe(String name, String place, String regularHoliday, String openingHour, int numberOfSeat, String birthplace) {
-        this.name = name;
-        this.place = place;
-        this.regularHoliday = regularHoliday;
-        this.openingHour = openingHour;
-        this.numberOfSeat = numberOfSeat;
-        this.birthplace = birthplace;
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     public String getName() {
