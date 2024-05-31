@@ -31,4 +31,20 @@ public class CafeService {
         cafeMapper.insert(cafe);
         return cafe;
     }
+
+    public Cafe update(Integer id, CafeRequest cafeRequest) {
+        Cafe cafe = cafeMapper.findById(id)
+                .orElseThrow(() -> new InformationNotFoundException("カフェ情報が見つかりません"));
+
+        cafe.setName(cafeRequest.getName());
+        cafe.setPlace(cafeRequest.getPlace());
+        cafe.setRegularHoliday(cafeRequest.getRegularHoliday());
+        cafe.setOpeningHour(cafeRequest.getOpeningHour());
+        cafe.setNumberOfSeat(cafeRequest.getNumberOfSeat());
+        cafe.setBirthplace(cafeRequest.getBirthplace());
+
+        cafeMapper.update(cafe);
+        return cafe;
+    }
+
 }
