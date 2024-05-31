@@ -33,4 +33,11 @@ public class CafeController {
         CafeResponse body = new CafeResponse("カフェ情報が登録されました");
         return ResponseEntity.created(location).body(body);
     }
+
+    @PatchMapping("/cafes/{id}")
+    public ResponseEntity<CafeResponse> update(@PathVariable("id") int id, @RequestBody CafeRequest cafeRequest) {
+        Cafe updatedCafe = cafeService.update(id, cafeRequest);
+        CafeResponse body = new CafeResponse("カフェ情報が更新されました");
+        return ResponseEntity.ok(body);
+    }
 }

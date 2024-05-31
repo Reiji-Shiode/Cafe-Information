@@ -1,6 +1,6 @@
 package com.raisetech.cafeinfo;
 
-//カフェ情報を登録する際に使うリクエストパラメータ
+//カフェ情報を登録、更新する際に使うリクエストパラメータ
 
 public class CafeRequest {
 

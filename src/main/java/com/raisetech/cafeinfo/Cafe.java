@@ -56,4 +56,32 @@ public class Cafe {
     public String getBirthplace() {
         return birthplace;
     }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
+    }
+
+    public void setRegularHoliday(String regularHoliday) {
+        this.regularHoliday = regularHoliday;
+    }
+
+    public void setOpeningHour(String openingHour) {
+        this.openingHour = openingHour;
+    }
+
+    public void setNumberOfSeat(int numberOfSeat) {
+        this.numberOfSeat = numberOfSeat;
+    }
+
+    public void setBirthplace(String birthplace) {
+        this.birthplace = birthplace;
+    }
 }

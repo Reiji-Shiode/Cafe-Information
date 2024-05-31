@@ -1,9 +1,6 @@
 package com.raisetech.cafeinfo;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,4 +20,7 @@ public interface CafeMapper {
     @Insert("INSERT INTO cafes (name, place, regular_holiday, opening_hour, number_of_seat, birthplace) VALUES (#{name}, #{place}, #{regularHoliday}, #{openingHour}, #{numberOfSeat}, #{birthplace})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     void insert(Cafe cafe);
+
+    @Update("UPDATE cafes SET name=#{name}, place=#{place}, regular_holiday=#{regularHoliday}, opening_hour=#{openingHour}, number_of_seat=#{numberOfSeat}, birthplace=#{birthplace} WHERE id=#{id}")
+    void update(Cafe cafe);
 }
