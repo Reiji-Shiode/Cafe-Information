@@ -1,7 +1,14 @@
 package com.raisetech.cafeinfo;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
@@ -22,7 +29,7 @@ public class CafeController {
     }
 
     @GetMapping("/cafes/{id}")
-    public Cafe findInformation(@PathVariable("id") int id) {
+    public Cafe findInformation(@PathVariable("id") Integer id) {
         return cafeService.findById(id);
     }
 
@@ -35,9 +42,16 @@ public class CafeController {
     }
 
     @PatchMapping("/cafes/{id}")
-    public ResponseEntity<CafeResponse> update(@PathVariable("id") int id, @RequestBody CafeRequest cafeRequest) {
+    public ResponseEntity<CafeResponse> update(@PathVariable("id") Integer id, @RequestBody CafeRequest cafeRequest) {
         Cafe updatedCafe = cafeService.update(id, cafeRequest);
         CafeResponse body = new CafeResponse("カフェ情報が更新されました");
+        return ResponseEntity.ok(body);
+    }
+
+    @DeleteMapping("/cafes/{id}")
+    public ResponseEntity<CafeResponse> delete(@PathVariable("id") Integer id) {
+        cafeService.delete(id);
+        CafeResponse body = new CafeResponse("カフェ情報が削除されました");
         return ResponseEntity.ok(body);
     }
 }

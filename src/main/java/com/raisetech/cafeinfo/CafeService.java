@@ -21,14 +21,14 @@ public class CafeService {
         }
     }
 
-    public Cafe findById(int id) {
+    public Cafe findById(Integer id) {
         return cafeMapper.findById(id)
                 .orElseThrow(() -> new InformationNotFoundException("こちらの情報は存在しません"));
     }
 
     public Cafe insert(String name, String place, String regularHoliday, String openingHour, int numberOfSeat, String birthplace) {
         Cafe cafe = new Cafe(name, place, regularHoliday, openingHour, numberOfSeat, birthplace);
-        cafeMapper.insert(cafe);
+        cafeMapper.insertCafe(cafe);
         return cafe;
     }
 
@@ -43,8 +43,14 @@ public class CafeService {
         cafe.setNumberOfSeat(cafeRequest.getNumberOfSeat());
         cafe.setBirthplace(cafeRequest.getBirthplace());
 
-        cafeMapper.update(cafe);
+        cafeMapper.updateCafe(cafe);
         return cafe;
+    }
+
+    public void delete(Integer id) {
+        Cafe cafe = cafeMapper.findById(id)
+                .orElseThrow(() -> new InformationNotFoundException("カフェ情報が見つかりません"));
+        cafeMapper.deleteCafe(id);
     }
 
 }
