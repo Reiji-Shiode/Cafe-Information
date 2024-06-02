@@ -48,9 +48,8 @@ public class CafeService {
     }
 
     public void delete(Integer id) {
-        Cafe cafe = cafeMapper.findById(id)
+        cafeMapper.findById(id)
                 .orElseThrow(() -> new InformationNotFoundException("カフェ情報が見つかりません"));
         cafeMapper.deleteCafe(id);
     }
-
 }
