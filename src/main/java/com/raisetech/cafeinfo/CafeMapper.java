@@ -15,12 +15,15 @@ public interface CafeMapper {
     List<Cafe> findByPlaceWith(String place);
 
     @Select("SELECT * FROM cafes WHERE id =#{id}")
-    Optional<Cafe> findById(int id);
+    Optional<Cafe> findById(Integer id);
 
     @Insert("INSERT INTO cafes (name, place, regular_holiday, opening_hour, number_of_seat, birthplace) VALUES (#{name}, #{place}, #{regularHoliday}, #{openingHour}, #{numberOfSeat}, #{birthplace})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    void insert(Cafe cafe);
+    void insertCafe(Cafe cafe);
 
     @Update("UPDATE cafes SET name=#{name}, place=#{place}, regular_holiday=#{regularHoliday}, opening_hour=#{openingHour}, number_of_seat=#{numberOfSeat}, birthplace=#{birthplace} WHERE id=#{id}")
-    void update(Cafe cafe);
+    void updateCafe(Cafe cafe);
+
+    @Delete("DELETE FROM cafes WHERE id=#{id}")
+    void deleteCafe(Integer id);
 }
