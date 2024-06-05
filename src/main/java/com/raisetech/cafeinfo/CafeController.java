@@ -1,5 +1,6 @@
 package com.raisetech.cafeinfo;
 
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,7 +35,7 @@ public class CafeController {
     }
 
     @PostMapping("/cafes")
-    public ResponseEntity<CafeResponse> insert(@RequestBody CafeRequest cafeRequest, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity<CafeResponse> insert(@RequestBody @Valid CafeRequest cafeRequest, UriComponentsBuilder uriBuilder) {
         Cafe cafe = cafeService.insert(cafeRequest.getName(), cafeRequest.getPlace(), cafeRequest.getRegularHoliday(), cafeRequest.getOpeningHour(), cafeRequest.getNumberOfSeat(), cafeRequest.getBirthplace());
         URI location = uriBuilder.path("/cafes/{id}").buildAndExpand(cafe.getId()).toUri();
         CafeResponse body = new CafeResponse("カフェ情報が登録されました");
@@ -42,7 +43,7 @@ public class CafeController {
     }
 
     @PatchMapping("/cafes/{id}")
-    public ResponseEntity<CafeResponse> update(@PathVariable("id") Integer id, @RequestBody CafeRequest cafeRequest) {
+    public ResponseEntity<CafeResponse> update(@PathVariable("id") Integer id, @RequestBody @Valid CafeRequest cafeRequest) {
         Cafe updatedCafe = cafeService.update(id, cafeRequest);
         CafeResponse body = new CafeResponse("カフェ情報が更新されました");
         return ResponseEntity.ok(body);
