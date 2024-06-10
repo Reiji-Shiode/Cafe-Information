@@ -1,5 +1,7 @@
 package com.raisetech.cafeinfo;
 
+import java.util.Objects;
+
 public class Cafe {
 
     private Integer id;
@@ -83,5 +85,23 @@ public class Cafe {
 
     public void setBirthplace(String birthplace) {
         this.birthplace = birthplace;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cafe cafe = (Cafe) o;
+        return id == cafe.id && Objects.equals(name, cafe.name) && Objects.equals(place, cafe.place) && Objects.equals(regularHoliday, cafe.regularHoliday) && Objects.equals(openingHour, cafe.openingHour) && Objects.equals(numberOfSeat, cafe.numberOfSeat) && Objects.equals(birthplace, cafe.birthplace);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, place, regularHoliday, openingHour, numberOfSeat, birthplace);
+    }
+
+    @Override
+    public String toString() {
+        return "{\"id\":" + id + ",\"name\":\"" + name + "\"place\":" + place + "\"regularHoliday\":" + regularHoliday + "\"openingHour\":" + openingHour + "\"numberOfSeat\":" + numberOfSeat + "\"birthplace\":" + birthplace + "\"}";
     }
 }
