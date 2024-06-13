@@ -105,7 +105,7 @@ class CafeServiceTest {
 
     @Test
     public void 存在しないIDのカフェ情報を更新しようとした時に例外がスローされること() {
-        CafeRequest updateRequest = new CafeRequest("Updated Cafe", "Updated Place", "No Holidays", "10:00-20:00", 200, "Updated City");
+        CafeRequest updateRequest = new CafeRequest("オニバスコーヒー", "中目黒", "年中無休", "9時-18時", 12, "奥沢");
 
         doReturn(Optional.empty()).when(cafeMapper).findById(0);
         assertThatThrownBy(() -> cafeService.update(0, updateRequest))
