@@ -11,6 +11,8 @@ import java.util.Optional;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
 
@@ -72,5 +74,60 @@ class CafeServiceTest {
             cafeService.findById(0);
         }).isInstanceOf(InformationNotFoundException.class)
                 .hasMessage("こちらの情報は存在しません");
+    }
+
+    @Test
+    public void 新しいカフェ情報が正常に登録できること() {
+        Cafe newCafe = new Cafe("オニバスコーヒー", "中目黒", "年中無休", "9時-18時", 12, "奥沢");
+        doNothing().when(cafeMapper).insertCafe(newCafe);
+        cafeService.insert(newCafe.getName(), newCafe.getPlace(), newCafe.getRegularHoliday(), newCafe.getOpeningHour(), newCafe.getNumberOfSeat(), newCafe.getBirthplace());
+        verify(cafeMapper).insertCafe(newCafe);
+    }
+
+    @Test
+    public void カフェ情報が正常に更新できること() {
+        Cafe existingCafe = new Cafe(1, "Starbucks Reserve Roastery", "中目黒", "年中無休", "7時-22時", 300, "シアトル");
+        CafeRequest updateRequest = new CafeRequest("オニバスコーヒー", "中目黒", "年中無休", "9時-18時", 12, "奥沢");
+
+        doReturn(Optional.of(existingCafe)).when(cafeMapper).findById(1);
+        doNothing().when(cafeMapper).updateCafe(any(Cafe.class));
+        Cafe upfatedCafe = cafeService.update(1, updateRequest);
+
+        assertThat(upfatedCafe.getName()).isEqualTo("オニバスコーヒー");
+        assertThat(upfatedCafe.getPlace()).isEqualTo("中目黒");
+        assertThat(upfatedCafe.getRegularHoliday()).isEqualTo("年中無休");
+        assertThat(upfatedCafe.getOpeningHour()).isEqualTo("9時-18時");
+        assertThat(upfatedCafe.getNumberOfSeat()).isEqualTo(12);
+        assertThat(upfatedCafe.getBirthplace()).isEqualTo("奥沢");
+
+        verify(cafeMapper).updateCafe(upfatedCafe);
+    }
+
+    @Test
+    public void 存在しないIDのカフェ情報を更新しようとした時に例外がスローされること() {
+        CafeRequest updateRequest = new CafeRequest("Updated Cafe", "Updated Place", "No Holidays", "10:00-20:00", 200, "Updated City");
+
+        doReturn(Optional.empty()).when(cafeMapper).findById(0);
+        assertThatThrownBy(() -> cafeService.update(0, updateRequest))
+                .isInstanceOf(InformationNotFoundException.class)
+                .hasMessage("カフェ情報が見つかりません");
+    }
+
+    @Test
+    public void カフェ情報が正常に削除できること() {
+        Cafe existingCafe = new Cafe(1, "Starbucks Reserve Roastery", "中目黒", "年中無休", "7時-22時", 300, "シアトル");
+
+        doReturn(Optional.of(existingCafe)).when(cafeMapper).findById(1);
+        doNothing().when(cafeMapper).deleteCafe(1);
+        cafeService.delete(1);
+        verify(cafeMapper).deleteCafe(1);
+    }
+
+    @Test
+    public void 存在しないIDのカフェ情報を削除しようとした時に例外がスローされること() {
+        doReturn(Optional.empty()).when(cafeMapper).findById(0);
+        assertThatThrownBy(() -> cafeService.delete(0))
+                .isInstanceOf(InformationNotFoundException.class)
+                .hasMessage("カフェ情報が見つかりません");
     }
 }
