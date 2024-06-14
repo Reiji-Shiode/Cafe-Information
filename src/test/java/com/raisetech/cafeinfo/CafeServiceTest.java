@@ -88,19 +88,14 @@ class CafeServiceTest {
     public void カフェ情報が正常に更新できること() {
         Cafe existingCafe = new Cafe(1, "Starbucks Reserve Roastery", "中目黒", "年中無休", "7時-22時", 300, "シアトル");
         CafeRequest updateRequest = new CafeRequest("オニバスコーヒー", "中目黒", "年中無休", "9時-18時", 12, "奥沢");
+        Cafe expectedUpdatedCafe = new Cafe(1, "オニバスコーヒー", "中目黒", "年中無休", "9時-18時", 12, "奥沢");
 
         doReturn(Optional.of(existingCafe)).when(cafeMapper).findById(1);
         doNothing().when(cafeMapper).updateCafe(any(Cafe.class));
-        Cafe upfatedCafe = cafeService.update(1, updateRequest);
+        Cafe updatedCafe = cafeService.update(1, updateRequest);
+        assertThat(updatedCafe).isEqualTo(expectedUpdatedCafe);
 
-        assertThat(upfatedCafe.getName()).isEqualTo("オニバスコーヒー");
-        assertThat(upfatedCafe.getPlace()).isEqualTo("中目黒");
-        assertThat(upfatedCafe.getRegularHoliday()).isEqualTo("年中無休");
-        assertThat(upfatedCafe.getOpeningHour()).isEqualTo("9時-18時");
-        assertThat(upfatedCafe.getNumberOfSeat()).isEqualTo(12);
-        assertThat(upfatedCafe.getBirthplace()).isEqualTo("奥沢");
-
-        verify(cafeMapper).updateCafe(upfatedCafe);
+        verify(cafeMapper).updateCafe(updatedCafe);
     }
 
     @Test
