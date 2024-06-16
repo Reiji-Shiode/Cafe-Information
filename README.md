@@ -1,14 +1,12 @@
 # カフェ情報管理システム
 
-![Cafe picture](..%2F..%2FLibrary%2FContainers%2Fcom.apple.Notes%2FData%2Ftmp%2FTemporaryItems%2FNSIRD_%E3%83%A1%E3%83%A2_MpdDX3%2FHardLinkURLTemp%2F2DB36684-9E74-4D63-86CE-FD7EDFD0EBAE%2F1718524736%2FThe%20Warden.jpeg)
-
 ***
 
 ## 概要
 
-勉強や作業、友人とカフェを利用をする際などその場の状況に適したカフェ情報を効率的に管理するためのツールです。  
-本システムはCRUD処理（CREATE、READ、UPDATE、DELETE）を用いたAPIを中心に構築されており、カフェ情報を登録、更新、取得、削除することができます。  
-更に、直感的なインターフェースにより簡単にカフェ情報を管理でき、カフェ探しのストレスを軽減します。
+本システムは、カフェ情報を効率的に管理するためのツールです。  
+CRUD処理（CREATE、READ、UPDATE、DELETE）を用いたAPIを中心に構築されており、カフェ情報の登録、更新、取得、削除が可能です。  
+直感的なインターフェースにより、簡単にカフェ情報を管理できるためカフェ探しのストレスを軽減します。
 
 ## 構成要件
 
