@@ -1,6 +1,6 @@
 # カフェ情報管理システム
 
-![Cafe picture and famous quote](..%2F..%2FLibrary%2FContainers%2Fcom.apple.Notes%2FData%2Ftmp%2FTemporaryItems%2FNSIRD_%E3%83%A1%E3%83%A2_MpdDX3%2FHardLinkURLTemp%2F2DB36684-9E74-4D63-86CE-FD7EDFD0EBAE%2F1718524736%2FThe%20Warden.jpeg)
+![Cafe picture](..%2F..%2FLibrary%2FContainers%2Fcom.apple.Notes%2FData%2Ftmp%2FTemporaryItems%2FNSIRD_%E3%83%A1%E3%83%A2_MpdDX3%2FHardLinkURLTemp%2F2DB36684-9E74-4D63-86CE-FD7EDFD0EBAE%2F1718524736%2FThe%20Warden.jpeg)
 
 ***
 
