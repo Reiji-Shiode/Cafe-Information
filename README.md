@@ -59,40 +59,40 @@ CRUD処理（CREATE、READ、UPDATE、DELETE）を用いたAPIを中心に構築
 ### CREATE処理
 
 - **POST / cafes** 新しいカフェ情報を登録する **(HTTPステータスコード201)**  
-  ![スクリーンショット 2024-05-30 22.38.19.png](https://d.kuku.lu/mewt55wu7)
+  ![スクリーンショット 2024-05-30 22.38.19.png](https://github.com/Reiji-Shiode/Cafeinfo-Finalassigment/assets/166202078/e8263e24-46b7-4061-9029-9cdd64e6f5f5)
 
 ### READ処理
 
 - **GET / cafes** レコードを全件取得する **(HTTPステータスコード200)**  
-  ![スクリーンショット 2024-05-27 19.36.53.png](https://d.kuku.lu/62p5nrcg7)
+  ![スクリーンショット 2024-05-27 19.36.53.png](https://github.com/Reiji-Shiode/Cafeinfo-Finalassigment/assets/166202078/329b888f-1f92-4b99-b082-9fe2d1b7db59)
 
 - **GET / cafes?place=◯** クエリ文字列を使用して特定の場所を記入すると該当するレコードを取得できる **(
   HTTPステータスコード200)**  
-  ![スクリーンショット 2024-05-11 16.27.29.png](https://d.kuku.lu/frhffshfv)
+  ![スクリーンショット 2024-05-11 16.27.29.png](https://github.com/Reiji-Shiode/Cafeinfo-Finalassigment/assets/166202078/5b547012-72c7-4303-8019-bf5a4d547185)
 
 - **GET / cafes/{id}** IDを検索し該当するレコードを取得できる **(HTTPステータスコード200)**  
-  ![334075033-45d21055-2a4a-44f3-a420-5e85b28aeeb6.png](https://d.kuku.lu/4fry2nthw)
+  ![334075033-45d21055-2a4a-44f3-a420-5e85b28aeeb6.png](https://github.com/Reiji-Shiode/Cafeinfo-Finalassigment/assets/166202078/e67f7e67-4713-4abf-9ce1-79b142b90ec7)
 
 - 存在しない場所を記入した際に空の配列がレスポンスされる **(HTTPステータスコード200)**  
-  ![334143858-1fdbc498-538e-40e0-8db4-1eaa6f599b5a-2.png](https://d.kuku.lu/es2nvnyd5)
+  ![334143858-1fdbc498-538e-40e0-8db4-1eaa6f599b5a-2.png](https://github.com/Reiji-Shiode/Cafeinfo-Finalassigment/assets/166202078/de8ae5de-0df4-43ec-9d5c-4d1529eb68bf)
 
 - 存在しないIDをリクエストした場合の例外ハンドリング **(HTTPステータスコード404)**  
-  ![334075318-de49e745-de1c-4525-83a8-a38bd9f610c2.png](https://d.kuku.lu/z3dumz6gk)
+  ![334075318-de49e745-de1c-4525-83a8-a38bd9f610c2.png](https://github.com/Reiji-Shiode/Cafeinfo-Finalassigment/assets/166202078/675889bc-d16c-4b9a-847c-529c927c1e3a)
 
 ### UPDATE処理
 
 - **PATCH / cafes/{id}** 指定したIDのカフェ情報を更新する **(HTTPステータスコード200)**  
-  ![スクリーンショット 2024-05-31 19.12.04.png](https://d.kuku.lu/6ge4x42ju)
+  ![スクリーンショット 2024-05-31 19.12.04.png](https://github.com/Reiji-Shiode/Cafeinfo-Finalassigment/assets/166202078/c346ca5f-3001-4830-b1ba-9f5da3550fbf)
 
 - 存在しないIDのカフェ情報を更新しようとした場合の例外ハンドリング **(HTTPステータスコード404)**  
-  ![スクリーンショット 2024-05-31 19.12.22.png](https://d.kuku.lu/27metafbe)
+  ![スクリーンショット 2024-05-31 19.12.22.png](https://github.com/Reiji-Shiode/Cafeinfo-Finalassigment/assets/166202078/197bfa3e-5f6e-4e34-a3b0-5f0b3b89925b)
 
 ### DELETE処理
 
 - **DELETE / cafes/{id}** 指定したIDのカフェ情報を削除する **(HTTPステータスコード200)**  
-  ![スクリーンショット 2024-06-01 16.26.59.png](https://d.kuku.lu/fyy4j3k6c)
+  ![スクリーンショット 2024-06-01 16.26.59.png](https://github.com/Reiji-Shiode/Cafeinfo-Finalassigment/assets/166202078/48ce1f2f-8005-4426-b7d1-002dabcc6b07)
 
 - 存在しないIDのカフェ情報を削除しようとした場合の例外ハンドリング **(HTTPステータスコード404)**  
-  ![スクリーンショット 2024-06-01 16.29.26.png](https://d.kuku.lu/tmvcfuywp)
+  ![スクリーンショット 2024-06-01 16.29.26.png](https://github.com/Reiji-Shiode/Cafeinfo-Finalassigment/assets/166202078/12988687-3dea-4c05-bb50-9afb6e3a6ff0)
 
 （以下課題が進むにつれて随時内容を記載していきます）
