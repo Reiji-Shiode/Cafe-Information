@@ -1,0 +1,50 @@
+cafes:
+  - id: 1
+    name: "Starbucks Reserve Roastery"
+    place: "中目黒"
+    regular_holiday: "年中無休"
+    opening_hour: "7時-22時"
+    number_of_seat: 300
+    birthplace: "シアトル"
+  - id: 2
+    name: "nadoya no katte"
+    place: "代々木上原"
+    regular_holiday: "月、火、水、木"
+    opening_hour: "9時-18時"
+    number_of_seat: 15
+    birthplace: "代々木上原"
+  - id: 3
+    name: "Streamer Coffee Company"
+    place: "原宿"
+    regular_holiday: "年中無休"
+    opening_hour: "8時-20時"
+    number_of_seat: 56
+    birthplace: "原宿"
+  - id: 4
+    name: "ブルーボトルコーヒー清澄白河フラッグシップカフェ"
+    place: "清澄白河"
+    regular_holiday: "年中無休"
+    opening_hour: "8時-19時"
+    number_of_seat: 47
+    birthplace: "カリフォルニア"
+  - id: 5
+    name: "ARC"
+    place: "蔵前"
+    regular_holiday: "年中無休"
+    opening_hour: "平日10時-23時 休日8時半-23時"
+    number_of_seat: 52
+    birthplace: "蔵前"
+  - id: 6
+    name: "T.Y.HARBOR"
+    place: "天王洲アイル"
+    regular_holiday: "年中無休"
+    opening_hour: "11時半-22時"
+    number_of_seat: 350
+    birthplace: "天王洲アイル"
+  - id: 7
+    name: "No.13 Cafe"
+    place: "新宿"
+    regular_holiday: "日"
+    opening_hour: "11時-16時半"
+    number_of_seat: 30
+    birthplace: "新宿"
