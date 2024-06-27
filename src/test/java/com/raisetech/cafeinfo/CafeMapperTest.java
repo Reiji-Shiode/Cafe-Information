@@ -61,6 +61,7 @@ class CafeMapperTest {
     void カフェ情報が登録できること() {
         Cafe newCafe = new Cafe("New Name", "New Place", "New RegularHoliday", "New OpeningHour", 1, "New Birthplace");
         cafeMapper.insertCafe(newCafe);
+        assertThat(newCafe.getId()).isNotNull().isGreaterThan(0);
 
         List<Cafe> cafes = cafeMapper.findAll();
         assertThat(cafes).hasSize(8);
