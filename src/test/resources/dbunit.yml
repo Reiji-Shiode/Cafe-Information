@@ -1,0 +1,9 @@
+cacheConnection: false
+cacheTableNames: false
+properties:
+  schema: cafe_database
+caseInsensitiveStrategy: LOWERCASE
+connectionConfig:
+  url: "jdbc:mysql://localhost:3307/cafe_database"
+  user: "user"
+  password: "password"
