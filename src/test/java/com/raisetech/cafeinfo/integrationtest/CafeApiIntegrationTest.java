@@ -192,7 +192,6 @@ public class CafeApiIntegrationTest {
     @DataSet(value = "datasets/cafes.yml")
     @Transactional
     void カフェ情報の登録時に不正なデータが送信された場合に例外400エラーが返ってくること() throws Exception {
-        // 不正なデータ（必須フィールドの欠如）
         String invalidCafe = """
                 {
                     "name":"",
@@ -262,6 +261,28 @@ public class CafeApiIntegrationTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.error").value(HttpStatus.NOT_FOUND.getReasonPhrase()))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.message").value("カフェ情報が見つかりません"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.path").value("/cafes/8"));
+    }
+
+    @Test
+    @DataSet(value = "datasets/cafes.yml")
+    @Transactional
+    void カフェ情報の更新時に不正なデータが送信された場合に例外400エラーが返ってくること() throws Exception {
+        String invalidCafe = """
+                {
+                    "name":"",
+                    "place":"Updated Place",
+                    "regularHoliday":"Updated RegularHoliday",
+                    "openingHour":"Updated OpeningHour",
+                    "numberOfSeat":1,
+                    "birthplace":"Updated Birthplace"
+                }
+                """;
+
+        mockMvc.perform(MockMvcRequestBuilders.patch("/cafes/1")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(invalidCafe))
+                .andExpect(MockMvcResultMatchers.status().isBadRequest())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value("名前は必須項目です"));
     }
 
     //Delete処理の結合テスト
