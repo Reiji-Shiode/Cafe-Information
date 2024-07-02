@@ -127,13 +127,13 @@ public class CafeApiIntegrationTest {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().json("""
                         {
-                        "id":1,
-                        "name":"Starbucks Reserve Roastery",
-                        "place":"中目黒",
-                        "regularHoliday":"年中無休",
-                        "openingHour":"7時-22時",
-                        "numberOfSeat":300,
-                        "birthplace":"シアトル"
+                            "id":1,
+                            "name":"Starbucks Reserve Roastery",
+                            "place":"中目黒",
+                            "regularHoliday":"年中無休",
+                            "openingHour":"7時-22時",
+                            "numberOfSeat":300,
+                            "birthplace":"シアトル"
                         }
                         """));
     }
