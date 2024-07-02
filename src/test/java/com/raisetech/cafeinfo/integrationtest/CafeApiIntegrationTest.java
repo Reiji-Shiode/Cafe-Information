@@ -188,6 +188,29 @@ public class CafeApiIntegrationTest {
                         """));
     }
 
+    @Test
+    @DataSet(value = "datasets/cafes.yml")
+    @Transactional
+    void カフェ情報の登録時に不正なデータが送信された場合に例外400エラーが返ってくること() throws Exception {
+        // 不正なデータ（必須フィールドの欠如）
+        String invalidCafe = """
+                {
+                    "name":"",
+                    "place":"New Place",
+                    "regularHoliday":"New RegularHoliday",
+                    "openingHour":"New OpeningHour",
+                    "numberOfSeat":1,
+                    "birthplace":"New Birthplace"
+                }
+                """;
+
+        mockMvc.perform(MockMvcRequestBuilders.post("/cafes")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(invalidCafe))
+                .andExpect(MockMvcResultMatchers.status().isBadRequest())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value("名前は必須項目です"));
+    }
+
     //Update処理の結合テスト
     @Test
     @DataSet(value = "datasets/cafes.yml")
