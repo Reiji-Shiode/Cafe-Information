@@ -36,7 +36,7 @@ jobs:
         with:
           report_paths: '**/build/test-results/test/TEST-*.xml'
 
-      - name: Notify Discord
+      - name: Discord
         uses: sarisia/actions-status-discord@v1
         if: always()
         env:
