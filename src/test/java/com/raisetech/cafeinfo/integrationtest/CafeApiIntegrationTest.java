@@ -308,6 +308,6 @@ public class CafeApiIntegrationTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.status").value(String.valueOf(HttpStatus.NOT_FOUND.value())))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.error").value(HttpStatus.NOT_FOUND.getReasonPhrase()))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.message").value("カフェ情報が見つかりません"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.path").value("/cafes/8"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.path").value("/cafes/8"))
     }
 }
