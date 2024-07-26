@@ -95,4 +95,4 @@ CRUD処理（CREATE、READ、UPDATE、DELETE）を用いたAPIを中心に構築
 - 存在しないIDのカフェ情報を削除しようとした場合の例外ハンドリング **(HTTPステータスコード404)**  
   ![スクリーンショット 2024-06-01 16.29.26.png](https://github.com/Reiji-Shiode/Cafeinfo-Finalassigment/assets/166202078/12988687-3dea-4c05-bb50-9afb6e3a6ff0)
 
-（以下課題が進むにつれて随時内容を記載していきます）
+
