@@ -95,4 +95,14 @@ CRUD処理（CREATE、READ、UPDATE、DELETE）を用いたAPIを中心に構築
 - 存在しないIDのカフェ情報を削除しようとした場合の例外ハンドリング **(HTTPステータスコード404)**  
   ![スクリーンショット 2024-06-01 16.29.26.png](https://github.com/Reiji-Shiode/Cafeinfo-Finalassigment/assets/166202078/12988687-3dea-4c05-bb50-9afb6e3a6ff0)
 
+## CI
 
+* GitHub Actionsによるテストワークフローの実装
+* テスト結果をDiscordに通知を送るCI
+
+![スクリーンショット 2024-07-11 23 40 42](https://github.com/user-attachments/assets/3b53207d-1a45-42b9-8e99-ffcbdbd184ec)
+
+* テスト成功時のDiscord通知
+  ![スクリーンショット 2024-07-11 23 36 24](https://github.com/user-attachments/assets/4817c97e-e4a6-4764-b924-b43ed5d7e170)
+* テスト失敗時のDiscord通知
+  ![スクリーンショット 2024-07-11 23 36 52](https://github.com/user-attachments/assets/62e58f00-3ab0-4b46-9a1e-650dd3744c09)
